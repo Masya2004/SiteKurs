@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курс завершён</title>
+  <meta http-equiv="refresh" content="0;url=congrats.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Курс завершён</h1>
+      <p>После Дня 4 откройте страницу поздравления.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu-section">
+      <h2>Меню дней</h2>
+      <div class="menu-grid">
+        <a class="menu-link" href="day0.html">День 0</a>
+        <a class="menu-link" href="day1.html">День 1</a>
+        <a class="menu-link" href="day2.html">День 2</a>
+        <a class="menu-link" href="day3.html">День 3</a>
+        <a class="menu-link" href="day4.html">День 4</a>
+        <a class="menu-link" href="day5.html">День 5</a>
+        <a class="menu-link active" href="day6.html">День 6</a>
+        <a class="menu-link" href="day7.html">День 7</a>
+      </div>
+    </section>
+
+    <section class="day-card">
+      <p class="lesson-intro">Референс с обложки курса — башня у воды; кадр должен показывать и водную гладь, и архитектуру.</p>
+      <h2>Шаги на сегодня</h2>
+      <ol class="steps">
+        <li>Добавьте камеру: <code>Shift + A</code> → <b>Камера</b> (скрин <b>444</b>).</li>
+        <li>В аутлайнере выберите объект <b>Camera</b> (чтобы команда ниже знала, какую камеру двигать).</li>
+        <li>Орбитой мыши настройте <b>свободный вид</b> в 3D-вьюпорте: так, как хотите видеть картинку в итоге — башня, вода, горизонт.</li>
+        <li>Встаньте в нужный вид и нажмите <b><code>Ctrl + Alt + Numpad 0</code></b> (ноль на цифровом блоке): <b>активная камера встанет в текущий вид</b> — позиция и угол совпадут с тем, что вы настроили глазами.</li>
+        <li>Проверка: <b><code>Numpad 0</code></b> — посмотреть сцену глазами камеры. Если нет NumPad: меню <code>Вид → Выравнять вид → Активную камеру по виду</code> для шага с выравниванием (или назначьте сочетание в настройках ввода).</li>
+        <li>При необходимости чуть подвиньте камеру в виде <code>Numpad 0</code> и снова примените <code>Ctrl + Alt + Numpad 0</code>, пока кадр не устроит.</li>
+        <li>Правило третей: сместите башню от центра кадра, оставьте баланс неба и воды.</li>
+        <li>В свойствах камеры задайте фокусное расстояние 35–50 мм (эквивалент). Размытие фона (<code>Depth of Field</code>) по желанию.</li>
+        <li><code>Output Properties</code> → разрешение, например <code>1920 × 1080</code>.</li>
+        <li>Сохраните <code>lesson06_camera.blend</code>.</li>
+      </ol>
+
+      <h2>Скрин: добавление камеры</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="444.png" alt="Меню добавить Камера">
+          <figcaption><b>444.</b> <code>Shift + A</code> → <b>Камера</b>; в сцене виден значок камеры с пирамидой обзора.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Горячие клавиши этого дня</h2>
+      <ul class="steps">
+        <li><code>Shift + A</code> — добавить камеру.</li>
+        <li><code>Ctrl + Alt + Numpad 0</code> — <b>активная камера = текущий вид</b>.</li>
+        <li><code>Numpad 0</code> — переключиться на вид из камеры.</li>
+      </ul>
+      <div class="nav-buttons">
+        <a class="btn btn-secondary" href="day5.html">Предыдущий день</a>
+        <a class="btn btn-secondary" href="index.html">В главное меню</a>
+        <a class="btn btn-primary" href="day7.html">Следующий день</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Курс Blender для школьников</footer>
+  <script src="viewer.js"></script>
+</body>
+</html>

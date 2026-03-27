@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>День 3 — Blender курс</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="day3-page">
+  <header class="hero">
+    <div class="hero-content">
+      <h1>День 3: Вода и сборка башни</h1>
+      <p>Плоскость воды по уровню и финальная стыковка частей ротонды.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu-section">
+      <h2>Меню дней</h2>
+      <div class="menu-grid">
+        <a class="menu-link" href="day0.html">День 0</a>
+        <a class="menu-link" href="day1.html">День 1</a>
+        <a class="menu-link" href="day2.html">День 2</a>
+        <a class="menu-link active" href="day3.html">День 3</a>
+        <a class="menu-link" href="day4.html">День 4</a>
+      </div>
+    </section>
+
+    <section class="day-card">
+      <p class="lesson-intro">Модель из <a href="day1.html">дня 1</a>, PBR-текстуры с <a href="day2.html">дня 2</a>. На <b>дне 3</b> вы доводите сцену до финального вида: добавляете растительность, используете BlenderKit, при необходимости делаете <b>бэйк</b> (например, AO/карты глубины/окружения) и финализируете рендер.</p>
+      <h2>Шаги на сегодня</h2>
+      <ol class="steps">
+        <li><code>Shift + A</code> → <code>Mesh → Plane</code> — будущая вода. Масштабом <code>S</code> растяните её над котлованом; по <code>Z</code> выставьте высоту так, чтобы края не «висели» над сушей (чуть ниже берега или вровень — как задумали).</li>
+        <li>При необходимости подразделите плоскость воды 1–2 раза, чтобы при волне/шейдере не было угловатости (или оставьте одну плоскость до <a href="day4.html">дня 4</a>).</li>
+        <li>Проверьте колоннаду: если <code>Array</code>/<code>Curve</code> ещё активны, убедитесь, что масштаб объекта применён (<code>Ctrl + A → Scale</code>) перед финальным «Apply» модификаторов.</li>
+        <li>Сгруппируйте части башни в <b>коллекцию</b> или сделайте пустышку-родителя — так проще двигать весь ансамбль целиком.</li>
+        <li><b>Растительность и BlenderKit:</b> добавьте растения/листья из библиотек или из BlenderKit, распределите их по берегам и вокруг котлована (не перебарщивайте — оставляйте читаемость формы ротонды).</li>
+        <li>Сделайте бэйк при необходимости (например, если вы выпекали AO/карты для ускорения или улучшения качества в финальном рендере).</li>
+        <li>Сохраните сцену как <code>lesson03_final.blend</code>.</li>
+      </ol>
+
+      <h2>Материал воды и шейдинг (по вашим скриншотам)</h2>
+      <p class="lesson-intro">Вода из BlenderKit обычно строится на комбинации: <b>отражения</b> (Fresnel), <b>IOR</b>, <b>roughness</b>, а также <b>глубина/поглощение</b> и <b>волны</b> через bump/normal или процедурный noise.</p>
+
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 072307.png" alt="Ноды шейдеров воды и PBR">
+          <figcaption>Шейдер в Shader Editor: собранные ноды PBR-текстур и параметры, которые влияют на отражения, рябь и итоговый вид воды.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 072400.png" alt="Плоскость воды в сцене">
+          <figcaption>Плоскость воды в сцене: форма берега сделана мешем, вода — отдельной плоскостью, выставленной по уровню.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 072415.png" alt="Материал воды BlenderKit River Water">
+          <figcaption>Материал воды BlenderKit (“River Water”): ключевые параметры — <b>IOR</b>, <b>roughness</b> и настройки “глубины/плотности” (зависит от пакета).</figcaption>
+        </figure>
+      </div>
+
+      <h2 id="camera-settings">Камера</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="CameraSettings.png" alt="Настройки камеры для финального кадра">
+          <figcaption>Настройка камеры: подбираем ракурс, чтобы ротонда и вода читались вместе.</figcaption>
+        </figure>
+      </div>
+
+      <h2 id="terrain-modifier">Terrain / plane: модификатор земли</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="ModificatorTerrain.png" alt="Модификатор для plane земли">
+          <figcaption>Модификатор земли на `plane`: создаёт неровности и “естественный” рельеф под воду.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="ModTerrain2.png" alt="Результат модификации terrain">
+          <figcaption>Результат: рельеф вокруг котлована выглядит более правдоподобно и хорошо поддерживает PBR.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Оптимизация сцены: бэйк и прокси</h2>
+      <p class="lesson-intro">Когда добавляется много растительности, сцена может начать “тупить” в работе. Обычно помогают <b>прокси/упрощённые версии</b> (чтобы быстро двигать и расставлять объекты) и <b>бэйк</b> (чтобы отрисовка/затенение и эффекты считались заранее, а не каждый раз на лету).</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="dva.png" alt="Прокси/упрощенные растения для оптимизации">
+          <figcaption>Прокси (упрощение) для растений: визуально всё выглядит “как в сцене”, но работать легче.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="odin.png" alt="Прокси/упрощенная растительность и камни">
+          <figcaption>Ещё один ракурс: упрощённые объекты для быстрой компоновки перед финальным рендером.</figcaption>
+        </figure>
+      </div>
+
+      <h2 id="render-eevee">Рендер в Eevee (день 3)</h2>
+      <p class="lesson-intro">
+        <span class="tip-word" tabindex="0" data-tooltip="Eevee — быстрый рендер в реальном времени. Он отлично подходит для предпросмотра композиции и работы воды, но финальная физика обычно уступает Cycles.">Eevee</span>
+        — быстрый предпросмотр (достаточно, чтобы проверить композицию, воду и распределение растений).
+        Для финала переходите к <a href="day4.html#render-cycles" class="tip-word" data-tooltip="Cycles — физически корректный (path tracing) рендер: лучше отражения/преломления воды и итоговый свет, но дольше по времени." data-delay-nav="true">Cycles</a> на 4-м дне.
+        А режим <a href="day1.html#viewport-shading-menu" class="tip-word" data-delay-nav="true" data-tooltip="Workbench — быстрый режим для работы во вьюпорте: удобно настраивать сцену без долгого рендера.">Workbench</a> помогает “пощупать” сцену ещё до финального предпросчёта.
+      </p>
+      <figure class="final-render-figure">
+        <img src="EVEE.png" alt="Рендер в Eevee">
+        <figcaption>Eevee: быстрый рендер-черновик для проверки сцены.</figcaption>
+      </figure>
+
+      <h2>Опционально</h2>
+      <ul class="steps">
+        <li>Если вода выглядит “стеклом” или “пластиком” — поднимите <b>roughness</b> и добавьте/усильте волну через bump/normal, а отражения слегка ослабьте.</li>
+        <li>Если сцена слишком темная/плоская — проверьте денойз, экспозицию и силу источников света; иногда помогают точечные правки в материалах воды и растений.</li>
+      </ul>
+      <div class="nav-buttons">
+        <a class="btn btn-secondary" href="day2.html">Предыдущий день</a>
+        <a class="btn btn-secondary" href="index.html">В главное меню</a>
+        <a class="btn btn-primary" href="day4.html">Следующий день</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Курс Blender для школьников</footer>
+  <script src="viewer.js"></script>
+</body>
+</html>

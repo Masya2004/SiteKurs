@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курс завершён</title>
+  <meta http-equiv="refresh" content="0;url=congrats.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Курс завершён</h1>
+      <p>После Дня 4 смотрите поздравление и финальный результат.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu-section">
+      <h2>Меню дней</h2>
+      <div class="menu-grid">
+        <a class="menu-link" href="day0.html">День 0</a>
+        <a class="menu-link" href="day1.html">День 1</a>
+        <a class="menu-link" href="day2.html">День 2</a>
+        <a class="menu-link" href="day3.html">День 3</a>
+        <a class="menu-link" href="day4.html">День 4</a>
+        <a class="menu-link active" href="day5.html">День 5</a>
+        <a class="menu-link" href="day6.html">День 6</a>
+        <a class="menu-link" href="day7.html">День 7</a>
+      </div>
+    </section>
+
+    <section class="day-card">
+      <p class="lesson-intro">Хороший свет «продаёт» камень и воду сильнее, чем усложнение геометрии.</p>
+      <h2>Шаги на сегодня</h2>
+      <ol class="steps">
+        <li>Добавьте солнце: <code>Shift + A</code> → <code>Свет</code> → <b>Солнце</b> (см. скрин <b>111</b>). Один раз достаточно — если солнце уже есть, просто выделите его в аутлайнере.</li>
+        <li>Поверните солнце (<code>R</code> или манипулятор вращения): лучи идут «из иконки» наружу — направьте их так, чтобы тени от башни читались сбоку, а фасад был освещён.</li>
+        <li>Во вкладке свойств лампы (иконка лампочки) подберите силу для выбранного движка (Cycles часто 3–10 W в зависимости от сцены; смотрите превью в режиме <b>Rendered</b>).</li>
+        <li>Откройте <b>Render Properties</b> (иконка фотоаппарата): выберите <b>Cycles</b> и при наличии видеокарты — <b>GPU-вычисления</b> (скрин <b>222</b>). Так финальный кадр считается быстрее, чем только на процессоре.</li>
+        <li>Вкладка <b>World</b>: цвет неба или HDRI для отражений на воде.</li>
+        <li>При тёмных тенях под колоннами добавьте второй свет — мягкий <code>Area</code> спереди с меньшей силой.</li>
+        <li>Переключите затенение вьюпорта на <b>Rendered</b> (крайняя иконка-шар справа вверху) и проверьте воду и силуэт башни.</li>
+        <li>Сохраните <code>lesson05_light.blend</code>.</li>
+      </ol>
+
+      <h2>Скрины: солнце и настройка рендера</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="111.png" alt="Меню Shift A — добавить источник Солнце">
+          <figcaption><b>111.</b> <code>Shift + A</code> → <code>Свет</code> → <b>Солнце</b>.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="222.png" alt="Солнце в сцене и вкладка Render — Cycles GPU">
+          <figcaption><b>222.</b> Объект «Солнце» в аутлайнере; <b>Render</b> → движок <b>Cycles</b>, устройство <b>GPU</b>.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Горячие клавиши этого дня</h2>
+      <ul class="steps">
+        <li><code>Shift + A</code> — меню добавления (свет, камера и др.).</li>
+        <li><code>R</code> — поворот выделенного солнца (до фиксации кликом или второй раз <code>R</code> для ввода угла).</li>
+      </ul>
+      <div class="nav-buttons">
+        <a class="btn btn-secondary" href="day4.html">Предыдущий день</a>
+        <a class="btn btn-secondary" href="index.html">В главное меню</a>
+        <a class="btn btn-primary" href="day6.html">Следующий день</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Курс Blender для школьников</footer>
+  <script src="viewer.js"></script>
+</body>
+</html>

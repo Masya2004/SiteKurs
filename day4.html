@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>День 4 — Финальный рендер</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>День 4: Финальный рендер в Cycles</h1>
+      <p>Разбираем движки рендера (<span class="tip-word" tabindex="0" data-tooltip="Workbench — быстрый предпросмотр для работы с моделью и настройками сцены. Обычно без “настоящего” света и воды.">Workbench</span> → <a href="day3.html#render-eevee" class="tip-word" data-tooltip="Eevee — быстрый рендер в реальном времени. Отлично для предпросмотра, но финальная физика (вода/отражения) обычно уступает Cycles." data-delay-nav="true">Eevee</a> → <span class="tip-word" tabindex="0" data-tooltip="Cycles — физически корректный path tracing рендер для качества: лучше отражения/преломления и общий свет, но дольше считается.">Cycles</span>) и делаем итоговый кадр.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu-section">
+      <h2>Меню дней</h2>
+      <div class="menu-grid">
+        <a class="menu-link" href="day0.html">День 0</a>
+        <a class="menu-link" href="day1.html">День 1</a>
+        <a class="menu-link" href="day2.html">День 2</a>
+        <a class="menu-link" href="day3.html">День 3</a>
+        <a class="menu-link active" href="day4.html">День 4</a>
+      </div>
+    </section>
+
+    <section class="day-card">
+      <p class="lesson-intro">
+        Сегодня мы берём сцену с <a href="day3.html">дня 3</a> и делаем финальный кадр в <b>Cycles</b>.
+        Логика простая: <a href="day1.html#viewport-shading-menu" class="tip-word" data-tooltip="Workbench — самый быстрый режим для работы: показывает “как примерно будет выглядеть” без дорогого рендера.">Workbench</a> помогает настраивать сцену,
+        <a href="day3.html#render-eevee" class="tip-word" data-tooltip="Eevee — быстрый предпросмотр, чтобы проверить композицию и водный материал без долгого ожидания.">Eevee</a> ускоряет итерации,
+        а <span class="tip-word" tabindex="0" data-tooltip="Cycles — финальный рендер (path tracing). Он точнее рассчитывает свет, отражения и преломления воды.">Cycles</span> даёт лучшее качество.
+      </p>
+
+      <h2>Камера и композиция</h2>
+      <p class="lesson-intro">Перед финальным запуском рендера убедитесь, что камера и ракурс уже “продают” ротонду и берег.</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="CameraSettings.png" alt="Настройки камеры">
+          <figcaption>Камера: используйте этот кадр как основу перед переключением в <b>Cycles</b>.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Terrain / plane: модификатор земли</h2>
+      <p class="lesson-intro">Рельеф влияет на то, как “ложится” свет и как читается берег у воды.</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="ModificatorTerrain.png" alt="Модификатор для plane земли">
+          <figcaption>Модификатор земли на <code>plane</code>: быстро добавляет неровности.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="ModTerrain2.png" alt="Результат работы модификатора terrain">
+          <figcaption>Результат: берег смотрится более естественно.</figcaption>
+        </figure>
+      </div>
+
+      <h2 id="cycles-settings">Настройки Cycles (шум, сэмплы, GPU)</h2>
+      <p class="lesson-intro">Перед финальным запуском проверьте параметры, которые сильнее всего влияют на качество/скорость: выбор режима, устройство (GPU), шумоподавление, пороги и число сэмплов.</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Dvishok.png" alt="Настройки Cycles: порог шума, сэмплы и шумоподавление">
+          <figcaption>Cycles: шумоподавление, пороги и сэмплы (настройки качества).</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Dvishok2.png" alt="Настройки Cycles: выбор GPU вычислений и сэмплы">
+          <figcaption>Cycles: устройство <b>GPU-вычисления</b> и параметры по сэмплам.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Финальный рендер в Cycles</h2>
+      <figure class="final-render-figure" id="render-cycles">
+        <img src="RenderFinal.png" alt="Финальный рендер в Cycles">
+        <figcaption>Cycles: итоговый кадр с реалистичным светом, водой и растительностью.</figcaption>
+      </figure>
+
+      <h2>Почему Cycles лучше (и чем отличается от Eevee/Workbench)</h2>
+      <ul class="steps">
+        <li><b>Физическая точность (особенно вода).</b> Cycles считает отражения/преломления как путь света, поэтому вода выглядит стабильнее: меньше “стеклянных” артефактов и больше правдоподобных бликов.</li>
+        <li><b>Глобальный свет.</b> Тени и контактные области мягче и “собраннее” (особенно вокруг камней и колонн). В <a href="day3.html#render-eevee" class="tip-word" data-delay-nav="true" data-tooltip="Eevee — быстрый realtime-рендер для проверки сцены. Финальные эффекты часто приближены, поэтому качество отличается от Cycles.">Eevee</a> часть света и отражений считается быстрее, но менее точно.</li>
+        <li><b>Качество материалов.</b> PBR + нормали/roughness в Cycles читаются “глубже”, поэтому земля, камень и вода выглядят объемнее.</li>
+        <li><b>Eevee vs Cycles по смыслу.</b> <a href="day3.html#render-eevee" class="tip-word" data-delay-nav="true" data-tooltip="На дне 3 показан предпросмотр в Eevee — им удобно быстро проверять воду, растения и композицию.">Eevee</a> — для итераций; <a href="#render-cycles" class="tip-word" data-tooltip="Тут находится финальный рендер в Cycles.">Cycles</a> — для финального качества.</li>
+        <li><b>Третий режим: Workbench.</b> <a href="day1.html#viewport-shading-menu" class="tip-word" data-delay-nav="true" data-tooltip="Workbench — быстрый режим просмотра/настройки вьюпорта. Полезен для работы, но не используется как финальный рендер качества.">Workbench</a> нужен, чтобы быстро настраивать сцену без долгого ожидания, но не для итогового кадра.</li>
+      </ul>
+
+      <h2>Что крутить для хорошего Cycles-результата</h2>
+      <ul class="steps">
+        <li><b>GPU-вычисления</b> (если есть видеокарта) — ускоряют рендер.</li>
+        <li><b>Denoise</b> и/или разумные <b>Samples</b>: сначала сделайте “пробу”, потом увеличьте для финала.</li>
+        <li><b>Light/World</b> и экспозицию: лучше сразу попасть в баланс, чем “душить шум” потом.</li>
+        <li>Старайтесь не менять материалы в последний момент: лучше 1–2 финальные правки и потом рендерить.</li>
+      </ul>
+      <div class="nav-buttons">
+        <a class="btn btn-secondary" href="day3.html">Предыдущий день</a>
+        <a class="btn btn-secondary" href="index.html">В главное меню</a>
+        <a class="btn btn-primary" href="congrats.html">Перейти к поздравлению</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Курс Blender для школьников</footer>
+  <script src="viewer.js"></script>
+</body>
+</html>

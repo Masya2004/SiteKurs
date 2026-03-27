@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курс завершён</title>
+  <meta http-equiv="refresh" content="0;url=congrats.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Курс завершён</h1>
+      <p>После Дня 4 — поздравление и финальный рендер.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu-section">
+      <h2>Меню дней</h2>
+      <div class="menu-grid">
+        <a class="menu-link" href="day0.html">День 0</a>
+        <a class="menu-link" href="day1.html">День 1</a>
+        <a class="menu-link" href="day2.html">День 2</a>
+        <a class="menu-link" href="day3.html">День 3</a>
+        <a class="menu-link" href="day4.html">День 4</a>
+        <a class="menu-link" href="day5.html">День 5</a>
+        <a class="menu-link" href="day6.html">День 6</a>
+        <a class="menu-link active" href="day7.html">День 7</a>
+      </div>
+    </section>
+
+    <section class="day-card">
+      <p class="lesson-intro">Финал — собрать всё, что накопилось с <a href="day1.html">дня 1</a>, в одну цельную картинку.</p>
+      <h2>Шаги на сегодня</h2>
+      <ol class="steps">
+        <li>Чек-лист: ландшафт без дыр, вода не утопляет берег, башня на плато, солнце и камера настроены (<a href="day5.html">день 5</a>, <a href="day6.html">день 6</a>).</li>
+        <li><b>Убрать «подсказки» из вьюпорта перед рендером:</b> нажмите <b><code>Shift + Alt + Z</code></b> или щёлкните иконку <b>«Наложения»</b> (два круга): скроются сетка, оси, обводки выделения и лишние оверлеи — удобно оценить чистую картинку (скрин <b>333</b>). При необходимости отдельно отключите гизмы в меню рядом.</li>
+        <li>Переключите затенение вьюпорта на <b>Rendered</b> (последняя круглая иконка справа вверху) — увидите предпросмотр со светом и материалами без полного <code>F12</code>.</li>
+        <li>В <code>Render Properties</code> проверьте движок (<b>Cycles</b> / GPU, как в <a href="day5.html">дне 5</a>) и сэмплы (Cycles: 128–512 для пробы, 512–1024 для финала).</li>
+        <li>Цветовая гамма: Filmic или AgX в <code>Color Management</code>.</li>
+        <li><b>Финальный кадр:</b> нажмите <b><code>F12</code></b> — Blender посчитает изображение в отдельном окне. Это главная горячая клавиша рендера.</li>
+        <li>При шуме на Cycles включите <code>Denoise</code> или поднимите число сэмплов.</li>
+        <li>Сохранение: в окне результата <code>Image → Save As</code> → PNG. Либо заранее задайте путь в <code>Output Properties</code> и сохраните из того же окна после рендера.</li>
+        <li>Подготовьте 3–5 предложений для защиты проекта.</li>
+      </ol>
+
+      <h2>Скрин: оверлеи и режим Rendered</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="333.png" alt="Наложения Shift Alt Z и режим затенения Rendered">
+          <figcaption><b>333.</b> Подсказка на иконке наложений: <code>Shift + Alt + Z</code> — скрыть оверлеи. Справа включён режим <b>Rendered</b> для превью перед <code>F12</code>.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Горячие клавиши финала</h2>
+      <ul class="steps">
+        <li><code>Shift + Alt + Z</code> — показать / скрыть наложения (сетка, обводки и т.п.).</li>
+        <li><code>F12</code> — рендер текущего кадра.</li>
+      </ul>
+      <h2>После курса</h2>
+      <ul class="steps">
+        <li>Архивируйте финальный <code>.blend</code> и PNG в одну папку — удобно для портфолио или домашней сдачи.</li>
+      </ul>
+      <div class="nav-buttons">
+        <a class="btn btn-secondary" href="day6.html">Предыдущий день</a>
+        <a class="btn btn-secondary" href="index.html">В главное меню</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Курс Blender для школьников</footer>
+  <script src="viewer.js"></script>
+</body>
+</html>

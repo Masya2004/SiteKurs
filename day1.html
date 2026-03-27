@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>День 1 — Blender курс</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>День 1: Старт и моделирование</h1>
+      <p>Интерфейс Blender, ландшафт, ротонда, лестница и детали — с опорой на ваши скриншоты.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu-section">
+      <h2>Меню дней</h2>
+      <div class="menu-grid">
+        <a class="menu-link" href="day0.html">День 0</a>
+        <a class="menu-link active" href="day1.html">День 1</a>
+        <a class="menu-link" href="day2.html">День 2</a>
+        <a class="menu-link" href="day3.html">День 3</a>
+        <a class="menu-link" href="day4.html">День 4</a>
+      </div>
+    </section>
+
+    <section class="day-card">
+      <h2>Шаги на сегодня</h2>
+      <ol class="steps">
+        <li>Запустите Blender и создайте новый проект: <code>File → New → General</code>.</li>
+        <li>Выберите макет <b>Layout</b>.</li>
+        <li>Освойте навигацию во вьюпорте (вращение, приближение, перемещение).</li>
+        <li>Настройте единицы измерения и сохраните проект как <code>lesson01.blend</code>.</li>
+        <li><code>Shift + A</code> → <code>Mesh → Plane</code> — создайте основу ландшафта.</li>
+        <li>Перейдите в <code>Edit Mode</code> (<code>Tab</code>), выделите всё (<code>A</code>) и выполните <code>Subdivide</code> (40–80 разрезов) для плотной сетки.</li>
+        <li>Переключитесь в <code>Sculpt Mode</code> и начните формировать рельеф: холмы, впадины и широкое углубление (котлован) под будущую воду вокруг места для башни.</li>
+        <li>Создайте основу башни-ротонды: цилиндр + колонны через модификаторы <b>Array</b> и <b>Curve</b> по кругу (кривая <code>Bezier Circle</code>); на скрине 1 виден уже собранный вид.</li>
+        <li>Добавьте лестницу, отредактировав куб в <code>Edit Mode</code> (экструзия и подъём ступеней).</li>
+      </ol>
+
+      <h2>Горячие клавиши дня</h2>
+      <ul class="steps">
+        <li><code>Shift + A</code> — добавить объект</li>
+        <li><code>Tab</code> — переключение Object / Edit Mode</li>
+        <li><code>A</code> — выделить всё</li>
+        <li><code>W</code> → <code>Subdivide</code> — разбить плоскость</li>
+        <li>В Sculpt Mode: <code>F</code> — размер кисти, <code>Smooth</code> — сглаживание</li>
+      </ul>
+
+      <h2>Иллюстрации (каждый файл на странице один раз)</h2>
+      <p class="lesson-intro">Сначала только ландшафт, затем сцена с башней и скульпт котлована — без повторения одного и того же кадра.</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Плоскость.png" alt="Базовая плоскость">
+          <figcaption>Шаг 1 — плоскость для земли.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Плоскость в режиме редактирования полигонов.png" alt="Subdivide плоскости">
+          <figcaption>Шаг 2 — плотная сетка после <code>Subdivide</code>.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Плоскость в режиме скульптинга.png" alt="Скульптинг ландшафта">
+          <figcaption>Шаг 3 — первый рельеф на плоскости (ещё без башни в кадре).</figcaption>
+        </figure>
+        <figure class="lesson-figure" id="shot-1">
+          <img src="1.png" alt="Общий вид сцены">
+          <figcaption><b>Скрин 1.</b> Собранная ротонда, лестница и углубление на ландшафте.</figcaption>
+        </figure>
+        <figure class="lesson-figure" id="shot-4">
+          <img src="4.png" alt="Sculpt Mode — котлован">
+          <figcaption><b>Скрин 4.</b> Котлован под воду вокруг башни в <code>Sculpt Mode</code>.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Скрины 2, 3 и 5 (детали и интерфейс)</h2>
+      <p class="lesson-intro">Продолжение вашей нумерованной серии — без повторения файлов с других страниц курса.</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure" id="shot-2">
+          <img src="2.png" alt="Скрин 2 — детали ротонды">
+          <figcaption><b>Скрин 2.</b> Ярусы, перила, центр основания под воду.</figcaption>
+        </figure>
+        <figure class="lesson-figure" id="shot-3">
+          <img src="3.png" alt="Скрин 3 — лестница и Multires">
+          <figcaption><b>Скрин 3.</b> Лестница в <code>Edit Mode</code> и модификатор <code>Multiresolution</code>.</figcaption>
+        </figure>
+        <figure class="lesson-figure" id="shot-5">
+          <img src="5.png" alt="Скрин 5 — декор и затенение вьюпорта">
+          <figcaption><b>Скрин 5.</b> Выделение декора кольца и меню типа затенения вьюпорта.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Колоннада: Array и Curve</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Башня_Array_Curve.png" alt="Модификаторы Array и Curve у колонн">
+          <figcaption>Размножение стоек и выкладка по окружности <code>Bezier Circle</code>.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Лестница по этапам</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 001413.png" alt="Лестница этап 0">
+          <figcaption>Заготовка профиля ступеней (этап до первого кадра).</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 001642.png" alt="Лестница этап 1">
+          <figcaption>Заготовка ступеней.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 001714.png" alt="Лестница этап 2">
+          <figcaption>Промежуточный профиль.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Снимок экрана 2026-03-26 001757.png" alt="Лестница этап 3">
+          <figcaption>Готовый подъём к площадке.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Edit Mode: колонна, выделения, меню</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure"><img src="EditMode_1.png" alt="Edit Mode 1"><figcaption>Привязка и сетка вокруг колонн.</figcaption></figure>
+        <figure class="lesson-figure"><img src="EditMode_2.png" alt="Edit Mode 2"><figcaption>Пропорциональное редактирование, плавный изгиб.</figcaption></figure>
+        <figure class="lesson-figure"><img src="EditMode_3.png" alt="Edit Mode 3"><figcaption>Петля граней у основания/ствола.</figcaption></figure>
+        <figure class="lesson-figure"><img src="EditMode_4.png" alt="Edit Mode 4"><figcaption>Кольцо граней у капители.</figcaption></figure>
+        <figure class="lesson-figure"><img src="EditMode_5.png" alt="Edit Mode 5"><figcaption>Меню <code>Select</code> и выделение.</figcaption></figure>
+        <figure class="lesson-figure"><img src="EditMode_6.png" alt="Edit Mode 6"><figcaption>Центральная колонна и ярусы башни.</figcaption></figure>
+        <figure class="lesson-figure"><img src="EditMode_7.png" alt="Edit Mode 7"><figcaption>Чередующееся выделение граней по кругу.</figcaption></figure>
+      </div>
+
+      <h2 id="viewport-shading-menu">Детализация башни и панель вьюпорта</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Tower_detail_edit.png" alt="Многоярусная башня в Edit Mode">
+          <figcaption>Многоуровневое выделение геометрии.</figcaption>
+        </figure>
+        <figure class="lesson-figure">
+          <img src="Viewport_shading_menu.png" alt="Тип затенения во вьюпорте">
+          <figcaption>Настройки отображения без рендера (MatCap, обводка и т.д.).</figcaption>
+        </figure>
+      </div>
+
+      <h2>Скульпт ландшафта — дополнительный ракурс</h2>
+      <div class="lesson-images">
+        <figure class="lesson-figure">
+          <img src="Sculpt_water_basin.png" alt="Скульпт котлована другой ракурс">
+          <figcaption>Другой ракурс котлована (сравните со <a href="#shot-4">скрином 4</a>).</figcaption>
+        </figure>
+      </div>
+
+      <h2>Ещё кадры моделирования (архив)</h2>
+      <p class="lesson-intro">Дополнительные сохранённые ракурсы; каждый файл здесь встречается на сайте только на этой странице.</p>
+      <div class="lesson-images">
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003027.png" alt="Колонна и ландшафт"><figcaption>Центральная колонна и углубление на земле.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003046.png" alt="Этап колонны"><figcaption>Детализация колонны.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003052.png" alt="Профиль колонны"><figcaption>Профиль и пояса.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003140.png" alt="Капитель"><figcaption>Капитель и выделение граней.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003341.png" alt="Меню выделения"><figcaption>Меню выделения и вид на сцену.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003353.png" alt="Шахматное выделение"><figcaption>Узор по кольцу граней.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 003520.png" alt="Основание"><figcaption>Низ колонны и основание.</figcaption></figure>
+        <figure class="lesson-figure"><img src="Снимок экрана 2026-03-26 010019.png" alt="Общий вид с забором"><figcaption>Ярусы, забор, рельеф; обводка каркаса.</figcaption></figure>
+      </div>
+
+      <div class="nav-buttons">
+        <a class="btn btn-secondary" href="day0.html">Предыдущий день</a>
+        <a class="btn btn-primary" href="day2.html">Следующий день</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Курс Blender для школьников</footer>
+  <script src="viewer.js"></script>
+</body>
+</html>
