@@ -126,8 +126,9 @@ a:hover {
 
 .hero {
   position: relative;
-  min-height: 300px;
+  min-height: 380px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -136,27 +137,134 @@ a:hover {
   border: 2px solid rgba(255, 255, 255, 0.98);
   border-radius: 14px;
   box-shadow: 0 14px 30px rgba(30, 64, 175, 0.15);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: linear-gradient(135deg, #eff6ff, #dbeafe);
-  z-index: 0;
 }
 
-.hero::after {
-  content: "";
+/* Контейнер для маскотов внутри hero */
+.hero .mascots-container {
   position: absolute;
-  inset: -6px -36px -34px -36px;
-  background-image: url("mascot-left.png"), url("mascot-right.png");
-  background-repeat: no-repeat, no-repeat;
-  background-position: left 12px calc(100% - 12px), right 12px calc(100% - 12px);
-  background-size: min(190px, 22vw), min(190px, 22vw);
-  opacity: 0.98;
+  bottom: -22px;
+  left: 0;
+  right: 0;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Левая сторона */
+.hero .mascot-left-side {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  width: min(130px, 18vw);
+  height: min(130px, 18vw);
+}
+
+/* Правая сторона */
+.hero .mascot-right-side {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  width: min(130px, 18vw);
+  height: min(130px, 18vw);
+}
+
+/* Все картинки */
+.hero .mascot-left-side img,
+.hero .mascot-right-side img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Левая сторона: сначала показываем Mascot-Left, потом Mascot-Right */
+.hero .mascot-left-side .left-img {
+  animation: showLeftFirst 6s infinite;
+}
+
+.hero .mascot-left-side .right-img {
+  animation: showLeftSecond 6s infinite;
+}
+
+/* Правая сторона: сначала показываем Mascot-Right, потом Mascot-Left */
+.hero .mascot-right-side .right-img {
+  animation: showRightFirst 6s infinite;
+}
+
+.hero .mascot-right-side .left-img {
+  animation: showRightSecond 6s infinite;
+}
+
+@keyframes showLeftFirst {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showLeftSecond {
+  0%, 45% {
+    opacity: 0;
+  }
+  50%, 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showRightFirst {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showRightSecond {
+  0%, 45% {
+    opacity: 0;
+  }
+  50%, 100% {
+    opacity: 1;
+  }
+}
+
+/* Блок целей дня — под шапкой */
+.day-goals {
+  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  border-left: 6px solid #f97316;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 5;
+}
+
+.day-goals h3 {
+  margin: 0 0 12px 0;
+  color: #0f3d99;
+  font-size: 1.25rem;
+}
+
+.day-goals ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.day-goals li {
+  margin: 8px 0;
+  color: #1e293b;
+  line-height: 1.45;
+}
+
+.day-goals li strong {
+  color: #ea580c;
 }
 
 .hero-content::before {
@@ -165,7 +273,7 @@ a:hover {
 
 .hero-content > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-content {
@@ -505,16 +613,35 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero::after {
-    inset: -4px -18px -26px -18px;
-    background-size: min(130px, 24vw), min(130px, 24vw);
-    background-position: left 8px calc(100% - 8px), right 8px calc(100% - 8px);
-    opacity: 0.9;
+  .hero .mascot-left-side,
+  .hero .mascot-right-side {
+    width: min(100px, 15vw);
+    height: min(100px, 15vw);
+  }
+  .hero .mascot-left-side {
+    left: 10px;
+  }
+  .hero .mascot-right-side {
+    right: 10px;
+  }
+  .day-goals {
+    margin: 20px 15px;
   }
 }
 
 @media (max-width: 640px) {
-  .hero::after {
-    display: none;
+  .hero .mascot-left-side,
+  .hero .mascot-right-side {
+    width: min(75px, 13vw);
+    height: min(75px, 13vw);
+  }
+  .hero .mascot-left-side {
+    left: 6px;
+  }
+  .hero .mascot-right-side {
+    right: 6px;
+  }
+  .day-goals {
+    margin: 20px 10px;
   }
 }
